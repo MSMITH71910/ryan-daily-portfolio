@@ -48,12 +48,26 @@ document.querySelectorAll('.work-card, .skill-card, .about-grid > *, .contact-wr
 /* ============================================================
    CONTACT FORM
    ============================================================ */
+const successModal = document.getElementById('successModal');
+const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+function showSuccessModal() {
+  successModal.classList.add('show');
+}
+
+function hideSuccessModal() {
+  successModal.classList.remove('show');
+}
+
+modalCloseBtn.addEventListener('click', hideSuccessModal);
+successModal.addEventListener('click', (e) => {
+  if (e.target === successModal) hideSuccessModal();
+});
+
 document.getElementById('contactForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const success = document.getElementById('formSuccess');
-  success.classList.add('show');
   e.target.reset();
-  setTimeout(() => success.classList.remove('show'), 5000);
+  showSuccessModal();
 });
 
 /* ============================================================
