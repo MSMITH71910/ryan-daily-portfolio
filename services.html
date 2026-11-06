@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Ryan Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { display: block; margin-bottom: 16px; }
+    .page-hero .section-title { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+
+    .services-list {
+      padding: 0 0 100px;
+    }
+
+    .service-block {
+      border-top: 1px solid var(--border);
+      padding: 64px 0;
+    }
+    .service-block:last-of-type { border-bottom: 1px solid var(--border); }
+
+    .service-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .service-heading {
+      position: sticky;
+      top: 100px;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-heading h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .service-heading h2 em {
+      font-style: italic;
+      color: var(--accent-1);
+    }
+
+    .service-body p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .service-body p:last-of-type { margin-bottom: 32px; }
+
+    .cta-strip {
+      background: linear-gradient(135deg, var(--bg-card), rgba(124,58,237,0.08));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 80px 48px;
+      text-align: center;
+      margin-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-strip h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .cta-strip p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    @media (max-width: 768px) {
+      .service-inner { grid-template-columns: 1fr; gap: 24px; }
+      .service-heading { position: static; }
+      .cta-strip { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">R<span class="dot">.</span>D</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="services.html" style="color:var(--text)">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">What I Offer</span>
+      <h1 class="section-title">Acting <em>Services</em></h1>
+    </div>
+  </div>
+
+  <div class="services-list">
+    <div class="container">
+
+      <div class="service-block">
+        <div class="service-inner">
+          <div class="service-heading">
+            <span class="service-icon">🎬</span>
+            <h2>Film <em>Acting</em></h2>
+            <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
+          </div>
+          <div class="service-body">
+            <p>Ryan Daily is a professional film actor based in the US, working on short films, feature films, and independent productions throughout the surrounding areas. Ryan approaches every film role with detailed preparation, including script analysis, character development, and close collaboration with directors to ensure each performance supports the story. The goal is to deliver authentic, emotionally grounded performances that translate naturally on camera.</p>
+            <p>Ryan Daily is available for local and regional film projects of all sizes. Whether the production is an independent film or a larger creative project, Ryan brings focus, reliability, and professionalism to every set. Filmmakers seeking a dependable film actor can expect a committed and collaborative approach from start to finish.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="service-inner">
+          <div class="service-heading">
+            <span class="service-icon">📺</span>
+            <h2>Television <em>Acting</em></h2>
+            <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
+          </div>
+          <div class="service-body">
+            <p>Ryan Daily provides television acting services for scripted series, episodic productions, and streaming content. Television work requires strong continuity, adaptability, and attention to pacing, and Ryan understands how to maintain consistent performances across multiple takes and episodes. Ryan works closely with directors and production teams to ensure each scene aligns with the tone and vision of the show.</p>
+            <p>As a television actor, Ryan Daily is comfortable working within fast-paced production schedules and taking direction efficiently. Ryan prioritizes preparation, professionalism, and clear communication on set. Casting teams and producers can rely on Ryan to deliver steady, believable performances throughout the production process.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="service-inner">
+          <div class="service-heading">
+            <span class="service-icon">🎭</span>
+            <h2>Theater <em>Performance</em></h2>
+            <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
+          </div>
+          <div class="service-body">
+            <p>Ryan Daily offers live theater performance services for stage productions, readings, and theatrical showcases. Theater acting requires presence, vocal strength, and emotional connection, and Ryan brings a disciplined, focused approach to every role. Stage experience allows Ryan to engage audiences while remaining fully committed to the character.</p>
+            <p>Performing live demands consistency and collaboration, and Ryan Daily takes pride in contributing positively to rehearsal environments and performances alike. Whether working in an intimate theater or a larger venue, Ryan approaches each production with respect for the craft and the ensemble. Theater directors can expect dedication, preparation, and professionalism.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="service-inner">
+          <div class="service-heading">
+            <span class="service-icon">📣</span>
+            <h2>Commercial <em>Acting</em></h2>
+            <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
+          </div>
+          <div class="service-body">
+            <p>Ryan Daily provides commercial acting services for businesses, agencies, and brands producing video content. Commercial performances require clarity, authenticity, and the ability to communicate a message naturally, and Ryan focuses on delivering relatable performances that align with brand goals. From broadcast commercials to digital promotions, Ryan adapts performance style to suit the intended audience.</p>
+            <p>As a commercial actor, Ryan Daily understands the importance of efficiency and consistency on set. Ryan arrives prepared, takes direction well, and works efficiently to support smooth production days. Clients looking for a reliable commercial actor can expect professional results and dependable collaboration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="service-inner">
+          <div class="service-heading">
+            <span class="service-icon">🎙️</span>
+            <h2>Voice <em>Acting</em></h2>
+            <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
+          </div>
+          <div class="service-body">
+            <p>Ryan Daily offers professional voice acting services for commercials, narrations, digital content, and character roles for clients nationwide. Voice work requires precise delivery, tone control, and emotional range, and Ryan focuses on producing clean, expressive recordings that meet production standards. Each project is approached with attention to pacing and clarity.</p>
+            <p>Whether recording remotely or working with local studios, Ryan Daily provides consistent, high-quality voice performances. Ryan responds well to direction and revisions, ensuring the final audio aligns with the creative vision. Clients seeking a dependable voice actor can expect clear communication and professional delivery.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="service-inner">
+          <div class="service-heading">
+            <span class="service-icon">🎥</span>
+            <h2>Auditions &amp; <em>Self-Tapes</em></h2>
+            <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
+          </div>
+          <div class="service-body">
+            <p>Ryan Daily provides professional auditions and self-tape performances for casting opportunities nationwide. Every audition is approached with preparation and intention, focusing on character choices that reflect the role accurately. Ryan understands how important first impressions are in the casting process.</p>
+            <p>As a professional actor, Ryan Daily delivers self-tapes that meet industry standards for framing, lighting, and sound. Whether for film, television, or commercial roles, Ryan treats auditions as an extension of the final performance. Casting professionals can expect timely, consistent, and high-quality submissions.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="cta-strip">
+      <h2>Let's Bring Your Story <em>to Life</em></h2>
+      <p>Work with a professional actor committed to authentic, engaging performances.</p>
+      <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand">Ryan Daily</span>
+      <p class="footer-copy">© 2026 Ryan Daily. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter">TW</a>
+        <a href="#" aria-label="LinkedIn">LI</a>
+        <a href="#" aria-label="IMDb">IMDb</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

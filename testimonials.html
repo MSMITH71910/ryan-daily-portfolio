@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials — Ryan Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(232,121,249,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { display: block; margin-bottom: 16px; }
+    .page-hero .section-title { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+    .page-hero p {
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 24px auto 0;
+    }
+
+    .testimonials-section {
+      padding: 60px 0 100px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(124,58,237,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .testimonial-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, var(--bg-card), rgba(124,58,237,0.06));
+    }
+
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--accent-1);
+      opacity: 0.3;
+      position: absolute;
+      top: 20px;
+      left: 32px;
+      font-style: italic;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text);
+      margin: 20px 0 32px;
+      padding-top: 20px;
+    }
+
+    .testimonial-card.featured .testimonial-text {
+      font-size: 1.35rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .author-info strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .author-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .stars {
+      margin-left: auto;
+      color: var(--accent-3);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+
+    .testimonials-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .cta-strip {
+      background: linear-gradient(135deg, var(--bg-card), rgba(124,58,237,0.08));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 80px 48px;
+      text-align: center;
+      margin-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-strip h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .cta-strip p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonial-card.featured { grid-column: span 1; }
+      .testimonials-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .testimonials-row { grid-template-columns: 1fr; }
+      .testimonial-card { padding: 28px 24px; }
+      .cta-strip { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">R<span class="dot">.</span>D</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="testimonials.html" style="color:var(--text)">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Testimonials</span>
+      <h1 class="section-title">What People <em>Are Saying</em></h1>
+      <p>Feedback from directors, producers, casting professionals, and collaborators who have worked with Ryan Daily.</p>
+    </div>
+  </div>
+
+  <section class="testimonials-section">
+    <div class="container">
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card featured">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-text">Working with Ryan Daily was a great experience from start to finish. Ryan was prepared, professional, and delivered exactly what the role needed. The level of dedication and authenticity Ryan brought to the character elevated the entire production. I would not hesitate to cast Ryan again.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">CP</div>
+            <div class="author-info">
+              <strong>Chris P.</strong>
+              <span>Film Director</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-text">Ryan Daily brought authenticity and depth to our project. The ability to take direction and adapt quickly made filming smooth and efficient. Every take showed genuine commitment to the character.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AW</div>
+            <div class="author-info">
+              <strong>Angela W.</strong>
+              <span>Producer</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-text">I was impressed by Ryan's on-camera presence and attention to detail. Ryan elevated the scene and worked seamlessly with the rest of the cast. A true professional in every sense.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ER</div>
+            <div class="author-info">
+              <strong>Eddie R.</strong>
+              <span>Casting Director</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-row">
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-text">From auditions to final takes, Ryan Daily was consistent and reliable. I would gladly work with them again on future projects. The commitment never wavered.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">GF</div>
+            <div class="author-info">
+              <strong>Gina F.</strong>
+              <span>Theater Director</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-text">A talented actor with a strong work ethic. Ryan showed up ready, confident, and committed to delivering the best performance possible. Sets run better when everyone brings that energy.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SR</div>
+            <div class="author-info">
+              <strong>Steven R.</strong>
+              <span>Commercial Director</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-text">Ryan's voice work for our documentary series was outstanding. The delivery was clear, expressive, and perfectly matched the tone we needed. Revisions were handled quickly and professionally.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ML</div>
+            <div class="author-info">
+              <strong>Marcus L.</strong>
+              <span>Streaming Producer</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cta-strip">
+      <h2>Let's Bring Your Story <em>to Life</em></h2>
+      <p>Work with a professional actor committed to authentic, engaging performances.</p>
+      <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand">Ryan Daily</span>
+      <p class="footer-copy">© 2026 Ryan Daily. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter">TW</a>
+        <a href="#" aria-label="LinkedIn">LI</a>
+        <a href="#" aria-label="IMDb">IMDb</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

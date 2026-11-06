@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me — Ryan Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { display: block; margin-bottom: 16px; }
+    .page-hero .section-title { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+    .page-hero p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 24px auto 0;
+      font-size: 1.05rem;
+    }
+
+    .about-page-section {
+      padding: 80px 0 100px;
+    }
+
+    .about-page-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-page-image {
+      position: sticky;
+      top: 100px;
+    }
+
+    .about-page-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a1a2e, #7c3aed44);
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    .about-page-frame svg { width: 60%; opacity: 0.5; }
+
+    .about-page-badges {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .about-badge {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .about-badge .num {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 300;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-badge .label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .about-page-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .about-page-content h2 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-page-content p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .expertise-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 36px 0;
+    }
+
+    .expertise-tag {
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-1);
+    }
+
+    .about-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 60px 0;
+    }
+
+    .mission-section {
+      padding: 80px 0;
+      background: var(--bg-2);
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .mission-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      transition: var(--transition);
+    }
+
+    .mission-card:hover {
+      border-color: var(--accent-1);
+      transform: translateY(-4px);
+    }
+
+    .mission-card .icon { font-size: 2rem; margin-bottom: 16px; }
+
+    .mission-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .mission-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .cta-strip {
+      background: linear-gradient(135deg, var(--bg-card), rgba(124,58,237,0.08));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 80px 48px;
+      text-align: center;
+      margin: 80px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-strip h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .cta-strip p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    @media (max-width: 900px) {
+      .about-page-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-page-image { position: static; }
+      .mission-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .mission-grid { grid-template-columns: 1fr; }
+      .about-page-badges { grid-template-columns: 1fr 1fr; }
+      .cta-strip { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">R<span class="dot">.</span>D</a>
+    <ul class="nav-links">
+      <li><a href="about.html" style="color:var(--text)">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">The Person Behind the Performance</span>
+      <h1 class="section-title">About <em>Ryan Daily</em></h1>
+      <p>A professional actor based in the US, committed to authentic storytelling and memorable performances.</p>
+    </div>
+  </div>
+
+  <section class="about-page-section">
+    <div class="container">
+      <div class="about-page-grid">
+        <div class="about-page-image">
+          <div class="about-page-frame">
+            <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="200" height="240" fill="url(#grad2)" rx="4"/>
+              <circle cx="100" cy="90" r="45" fill="rgba(255,255,255,0.15)"/>
+              <ellipse cx="100" cy="195" rx="65" ry="38" fill="rgba(255,255,255,0.1)"/>
+              <defs>
+                <linearGradient id="grad2" x1="0" y1="0" x2="200" y2="240" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#7c3aed"/>
+                  <stop offset="100%" stop-color="#06b6d4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="about-page-badges">
+            <div class="about-badge">
+              <span class="num">5+</span>
+              <span class="label">Years Experience</span>
+            </div>
+            <div class="about-badge">
+              <span class="num">30+</span>
+              <span class="label">Projects</span>
+            </div>
+            <div class="about-badge">
+              <span class="num">12+</span>
+              <span class="label">Collaborators</span>
+            </div>
+            <div class="about-badge">
+              <span class="num">100%</span>
+              <span class="label">Passion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-page-content">
+          <h2>The Story <em>Behind the Art</em></h2>
+          <p>Hi, I'm <strong>Ryan Daily</strong> — a professional actor based in the US with a passion for storytelling, authentic performance, and creative collaboration. I bring dedication and versatility to every project, whether it's a dramatic film role, a live stage production, or a commercial shoot.</p>
+          <p>Ryan Daily is committed to approaching every role with detailed preparation and a genuine desire to serve the story. That means diving deep into character development, building strong working relationships with directors and fellow cast members, and showing up ready to do the work.</p>
+          <p>With experience spanning film, television, theater, commercials, and voice acting, Ryan brings a broad range of skills and a consistent standard of professionalism to every production. The goal is always the same: deliver performances that are emotionally real, narratively purposeful, and memorable to audiences.</p>
+          <p>Based in the US and available for local, regional, and national productions, Ryan Daily welcomes opportunities to collaborate with filmmakers, casting directors, production companies, brands, and creative teams of all sizes.</p>
+
+          <div class="expertise-tags">
+            <span class="expertise-tag">Film Acting</span>
+            <span class="expertise-tag">Television</span>
+            <span class="expertise-tag">Theater</span>
+            <span class="expertise-tag">Commercial</span>
+            <span class="expertise-tag">Voice Acting</span>
+            <span class="expertise-tag">Self-Tapes</span>
+            <span class="expertise-tag">Character Work</span>
+            <span class="expertise-tag">Improvisation</span>
+          </div>
+
+          <div class="about-cta">
+            <a href="services.html" class="btn btn-primary">View Services</a>
+            <a href="index.html#contact" class="btn btn-outline">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Core Values</span>
+        <h2 class="section-title">What Drives <em>Ryan</em></h2>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="icon">🎯</div>
+          <h3>Preparation</h3>
+          <p>Every role starts with thorough script analysis, character research, and intentional choices. Preparation is the foundation of every strong performance.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">🤝</div>
+          <h3>Collaboration</h3>
+          <p>Acting is a team effort. Ryan believes in open communication with directors, co-stars, and crew — building trust that elevates everyone's work on set.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">🎭</div>
+          <h3>Authenticity</h3>
+          <p>The most powerful performances come from truth. Ryan is committed to bringing genuine emotion and honesty to every scene, every take, every project.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">⚡</div>
+          <h3>Adaptability</h3>
+          <p>Productions move fast and demands change. Ryan is flexible, takes direction well, and thrives in dynamic environments without sacrificing quality.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">📈</div>
+          <h3>Growth</h3>
+          <p>Craft is never finished. Ryan actively pursues training, new techniques, and challenging roles to continuously evolve as a performer.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">🌟</div>
+          <h3>Professionalism</h3>
+          <p>From auditions to final takes, Ryan brings reliability, respect, and a positive presence to every set and production environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cta-strip">
+      <h2>Let's Bring Your Story <em>to Life</em></h2>
+      <p>Work with a professional actor committed to authentic, engaging performances.</p>
+      <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand">Ryan Daily</span>
+      <p class="footer-copy">© 2026 Ryan Daily. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter">TW</a>
+        <a href="#" aria-label="LinkedIn">LI</a>
+        <a href="#" aria-label="IMDb">IMDb</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
