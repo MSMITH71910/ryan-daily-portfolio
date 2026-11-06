@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan Daily — Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-brand">R<span class="dot">.</span>D</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">Creative Professional</p>
+      <h1 class="hero-name fade-up delay-1">Ryan<br /><em>Daily</em></h1>
+      <p class="hero-tagline fade-up delay-2">Actor &nbsp;·&nbsp; Artist &nbsp;·&nbsp; Visionary</p>
+      <div class="hero-cta fade-up delay-3">
+        <a href="#work" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="scroll-hint fade-up delay-4">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <div class="about-image-frame">
+            <div class="about-image-placeholder">
+              <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="240" fill="url(#grad)" rx="4"/>
+                <circle cx="100" cy="90" r="45" fill="rgba(255,255,255,0.15)"/>
+                <ellipse cx="100" cy="195" rx="65" ry="38" fill="rgba(255,255,255,0.1)"/>
+                <defs>
+                  <linearGradient id="grad" x1="0" y1="0" x2="200" y2="240" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#7c3aed"/>
+                    <stop offset="100%" stop-color="#06b6d4"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <p class="placeholder-label">Your Photo Here</p>
+            </div>
+          </div>
+          <div class="about-accent-box">
+            <span class="accent-num">5+</span>
+            <span class="accent-label">Years of<br/>Experience</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">The Story<br /><em>Behind the Art</em></h2>
+          <p>Hi, I'm <strong>Ryan Daily</strong> — a passionate creative professional with a drive to tell compelling stories, connect with audiences, and bring authentic emotion to every project.</p>
+          <p>Whether I'm on stage, in front of a camera, or collaborating on a creative vision, I bring dedication, versatility, and a unique perspective that makes every project memorable.</p>
+          <p>Based in the US, I'm available for acting roles, creative collaborations, brand work, and more. Let's create something unforgettable together.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">30+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">12+</span>
+              <span class="stat-label">Collaborators</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Passion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Featured <em>Work</em></h2>
+      </div>
+      <div class="work-grid">
+        <div class="work-card work-card--large" data-category="Film">
+          <div class="work-card-bg" style="background: linear-gradient(135deg, #1a1a2e, #7c3aed88)"></div>
+          <div class="work-card-content">
+            <span class="work-category">Film</span>
+            <h3>The Last Scene</h3>
+            <p>Lead role in an independent drama exploring themes of identity and redemption.</p>
+          </div>
+        </div>
+        <div class="work-card" data-category="Theatre">
+          <div class="work-card-bg" style="background: linear-gradient(135deg, #0f2027, #06b6d488)"></div>
+          <div class="work-card-content">
+            <span class="work-category">Theatre</span>
+            <h3>Broken Horizons</h3>
+            <p>Stage production — 60-night run, sold-out performances.</p>
+          </div>
+        </div>
+        <div class="work-card" data-category="Commercial">
+          <div class="work-card-bg" style="background: linear-gradient(135deg, #1a1a1a, #f59e0b88)"></div>
+          <div class="work-card-content">
+            <span class="work-category">Commercial</span>
+            <h3>Brand Campaign</h3>
+            <p>National television commercial — principal talent.</p>
+          </div>
+        </div>
+        <div class="work-card" data-category="Short Film">
+          <div class="work-card-bg" style="background: linear-gradient(135deg, #0d1b2a, #e879f988)"></div>
+          <div class="work-card-content">
+            <span class="work-category">Short Film</span>
+            <h3>Echoes</h3>
+            <p>Award-nominated short film — Sundance Festival submission.</p>
+          </div>
+        </div>
+        <div class="work-card" data-category="Voice">
+          <div class="work-card-bg" style="background: linear-gradient(135deg, #1a0a0a, #ef444488)"></div>
+          <div class="work-card-content">
+            <span class="work-category">Voice Over</span>
+            <h3>Narration Series</h3>
+            <p>Documentary narration for 8-episode streaming series.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Expertise</span>
+        <h2 class="section-title">What I <em>Bring</em></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🎭</div>
+          <h3>Acting</h3>
+          <p>Film, television, theatre, and commercial. Method-trained with range across dramatic, comedic, and character roles.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🎙️</div>
+          <h3>Voice & Narration</h3>
+          <p>Rich, versatile vocal range for voice-over, narration, dubbing, and audio book work.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📸</div>
+          <h3>On-Camera Presence</h3>
+          <p>Natural, compelling on-camera performance honed through years of commercial and film work.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">✍️</div>
+          <h3>Creative Writing</h3>
+          <p>Screenwriting, storytelling, and creative content development for stage and screen.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🤝</div>
+          <h3>Brand Collaboration</h3>
+          <p>Partnerships, brand ambassador work, and authentic storytelling for marketing campaigns.</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🌟</div>
+          <h3>Improvisation</h3>
+          <p>Advanced improv training, bringing spontaneity and authenticity to every performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-wrap">
+        <div class="contact-left">
+          <span class="section-label">Let's Connect</span>
+          <h2 class="section-title">Ready to Create<br /><em>Something Great?</em></h2>
+          <p>Open for acting roles, creative collaborations, brand work, voice-over projects, and more. Drop me a message and let's talk.</p>
+          <div class="contact-links">
+            <a href="mailto:hello@ryandaily.com" class="contact-link">
+              <span class="contact-link-icon">✉</span>
+              hello@ryandaily.com
+            </a>
+            <a href="#" class="contact-link">
+              <span class="contact-link-icon">📱</span>
+              Available on request
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="fname" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="femail" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <select id="fsubject">
+              <option value="" disabled selected>Project Type</option>
+              <option>Film / TV Role</option>
+              <option>Theatre Production</option>
+              <option>Commercial / Brand</option>
+              <option>Voice Over</option>
+              <option>Creative Collaboration</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="fmessage" placeholder="Tell me about your project..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <p class="form-success" id="formSuccess">Message sent! I'll be in touch soon.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand">Ryan Daily</span>
+      <p class="footer-copy">© 2026 Ryan Daily. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter">TW</a>
+        <a href="#" aria-label="LinkedIn">LI</a>
+        <a href="#" aria-label="IMDb">IMDb</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <div class="chatbot-wrapper" id="chatbotWrapper">
+    <div class="chatbot-bubble" id="chatbotBubble" title="Chat with RD Bot">
+      <span class="chatbot-bubble-icon">💬</span>
+      <span class="chatbot-unread" id="chatUnread">1</span>
+    </div>
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">RD</div>
+        <div class="chatbot-header-info">
+          <span class="chatbot-name">Ryan's Assistant</span>
+          <span class="chatbot-status">● Online</span>
+        </div>
+        <button class="chatbot-close" id="chatbotClose">✕</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-msg bot">
+          <span>Hey there! 👋 I'm <strong>RD Bot</strong>, Ryan's digital hype-person. I can tell you about Ryan, help you get in touch, or just drop a joke. What's up?</span>
+        </div>
+        <div class="chat-quick-replies" id="quickReplies">
+          <button class="quick-reply" data-msg="Who is Ryan Daily?">Who is Ryan?</button>
+          <button class="quick-reply" data-msg="What work has Ryan done?">His work?</button>
+          <button class="quick-reply" data-msg="How can I contact Ryan?">Contact info</button>
+          <button class="quick-reply" data-msg="Tell me a joke">Tell a joke 😄</button>
+        </div>
+      </div>
+      <div class="chatbot-input-row">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." />
+        <button id="chatSend">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
