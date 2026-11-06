@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Ryan Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { display: block; margin-bottom: 16px; }
+    .page-hero .section-title { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+    .page-hero p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 24px auto 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .contact-section {
+      padding: 60px 0 100px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info-panel {
+      position: sticky;
+      top: 100px;
+    }
+
+    .contact-info-panel h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .contact-info-panel h2 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-info-panel > p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+    }
+
+    .contact-detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-detail-item:first-child { border-top: 1px solid var(--border); }
+
+    .detail-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .detail-content strong {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .detail-content a,
+    .detail-content span {
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: color var(--transition);
+    }
+
+    .detail-content a:hover { color: var(--accent-2); }
+
+    .contact-form-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+    }
+
+    .contact-form-panel h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-panel > p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent-1);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+    }
+
+    .form-group select option { background: var(--bg-2); }
+
+    .form-group textarea { resize: vertical; min-height: 140px; }
+
+    .form-submit-row {
+      margin-top: 8px;
+    }
+
+    .form-success-msg {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      border-radius: var(--radius);
+      background: rgba(6,182,212,0.1);
+      border: 1px solid rgba(6,182,212,0.3);
+      color: var(--accent-2);
+      font-size: 0.95rem;
+      margin-top: 20px;
+    }
+
+    .form-success-msg.visible { display: block; }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+      .contact-info-panel { position: static; }
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-panel { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">R<span class="dot">.</span>D</a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html" style="color:var(--text)">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Get In Touch</span>
+      <h1 class="section-title">Contact <em>Ryan Daily</em></h1>
+      <p>Have a question about availability or an upcoming project? Looking to discuss a role, audition, or production opportunity? Ryan Daily is just a call or click away — reach out and let's start the conversation.</p>
+    </div>
+  </div>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-info-panel">
+          <h2>I Look Forward to <em>Working With You</em></h2>
+          <p>Whether you're a director, casting professional, producer, or creative collaborator, Ryan Daily welcomes the opportunity to connect. Use the form or reach out directly — whatever works best for you.</p>
+
+          <ul class="contact-detail-list">
+            <li class="contact-detail-item">
+              <div class="detail-icon">✉</div>
+              <div class="detail-content">
+                <strong>Direct Email</strong>
+                <a href="mailto:hello@ryandaily.com">hello@ryandaily.com</a>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <div class="detail-icon">📱</div>
+              <div class="detail-content">
+                <strong>Phone</strong>
+                <span>Available on request</span>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <div class="detail-icon">📍</div>
+              <div class="detail-content">
+                <strong>Based In</strong>
+                <span>United States</span>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <div class="detail-icon">⏱</div>
+              <div class="detail-content">
+                <strong>Response Time</strong>
+                <span>Typically within 24–48 hours</span>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <div class="detail-icon">🎬</div>
+              <div class="detail-content">
+                <strong>Available For</strong>
+                <span>Film · Television · Theater · Commercial · Voice</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-form-panel">
+          <h3>Let's Work <em>Together</em></h3>
+          <p>Get in touch today to discuss your project and see how Ryan can contribute to your production.</p>
+
+          <form id="contactPageForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cp-name">Your Name</label>
+                <input type="text" id="cp-name" placeholder="Full name" required />
+              </div>
+              <div class="form-group">
+                <label for="cp-email">Your Email Address</label>
+                <input type="email" id="cp-email" placeholder="email@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cp-phone">Your Phone Number</label>
+                <input type="tel" id="cp-phone" placeholder="(000) 000-0000" />
+              </div>
+              <div class="form-group">
+                <label for="cp-type">Project Type</label>
+                <select id="cp-type">
+                  <option value="" disabled selected>Select a type</option>
+                  <option>Film Role</option>
+                  <option>Television Role</option>
+                  <option>Theater Production</option>
+                  <option>Commercial / Brand</option>
+                  <option>Voice Over</option>
+                  <option>Audition / Self-Tape</option>
+                  <option>Creative Collaboration</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-message">Your Message</label>
+              <textarea id="cp-message" placeholder="Tell me about your project, timeline, and how I can help..." required></textarea>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            </div>
+
+            <div class="form-success-msg" id="cpFormSuccess">
+              ✓ &nbsp; Message sent! Ryan will be in touch with you soon.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-brand">Ryan Daily</span>
+      <p class="footer-copy">© 2026 Ryan Daily. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Twitter">TW</a>
+        <a href="#" aria-label="LinkedIn">LI</a>
+        <a href="#" aria-label="IMDb">IMDb</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('open');
+    });
+
+    document.getElementById('contactPageForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('cpFormSuccess').classList.add('visible');
+      this.reset();
+      setTimeout(() => {
+        document.getElementById('cpFormSuccess').classList.remove('visible');
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
